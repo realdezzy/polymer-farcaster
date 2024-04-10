@@ -1,0 +1,8 @@
+{
+  "name": "polymer-farcaster",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@realdezzy:realdezzy/polymer-farcaster.git",
+  "author": "realdezzy <realdezzy1@gmail.com>",
+  "license": "MIT"
+}
