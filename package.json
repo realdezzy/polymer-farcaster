@@ -4,5 +4,12 @@
   "main": "index.js",
   "repository": "git@realdezzy:realdezzy/polymer-farcaster.git",
   "author": "realdezzy <realdezzy1@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "viem": "^2.9.15",
+    "wagmi": "^2.5.19"
+  }
 }

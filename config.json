@@ -1,0 +1,45 @@
+{
+  "proofsEnabled": false,
+  "deploy": {
+    "base": "NewNftMint",
+    "optimism": "NewNftMint"
+  },
+  "isUniversal": true,
+  "createChannel": {
+    "srcChain": "optimism",
+    "srcAddr": "0x531C599F5214B5D351b7eeA17D647d63fBC7a290",
+    "dstChain": "base",
+    "dstAddr": "0xD6130841394a0135129A20574fC86493d6B8D504",
+    "version": "1.0",
+    "ordering": 0,
+    "fees": false
+  },
+  "sendPacket": {
+    "optimism": {
+      "portAddr": "0x531C599F5214B5D351b7eeA17D647d63fBC7a290",
+      "channelId": "channel-38002",
+      "timeout": 36000
+    },
+    "base": {
+      "portAddr": "0xD6130841394a0135129A20574fC86493d6B8D504",
+      "channelId": "channel-38003",
+      "timeout": 36000
+    }
+  },
+  "sendUniversalPacket": {
+    "optimism": {
+      "portAddr": "0x691B9bB9f262f997263FBF47F968d2B08bb5a6B8",
+      "channelId": "channel-10",
+      "timeout": 36000
+    },
+    "base": {
+      "portAddr": "0x6Dd3BE79402E197dd31A763a96C1300e4134Ad09",
+      "channelId": "channel-11",
+      "timeout": 36000
+    }
+  },
+  "backup": {}
+}
+
+// Base: 0x7c9f0A60b2A6DD02d6E71fa2aBe6Cb9234f40a5C
+// Optimism: 0x7f525e27eE291feBFa9b447E75e9249aA607fE09
