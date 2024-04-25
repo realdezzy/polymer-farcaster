@@ -1,8 +1,8 @@
 {
   "proofsEnabled": false,
   "deploy": {
-    "base": "NewNftMint",
-    "optimism": "NewNftMint"
+    "base": "PolyERC721UC",
+    "optimism": "PolyERC721UC"
   },
   "isUniversal": true,
   "createChannel": {
@@ -26,20 +26,17 @@
       "timeout": 36000
     }
   },
-  "sendUniversalPacket": {
+   "sendUniversalPacket": {
     "optimism": {
-      "portAddr": "0x691B9bB9f262f997263FBF47F968d2B08bb5a6B8",
+      "portAddr": "0x298a3B9840C2be05f0f91832acdf670aB9a15a37",
       "channelId": "channel-10",
       "timeout": 36000
     },
     "base": {
-      "portAddr": "0x6Dd3BE79402E197dd31A763a96C1300e4134Ad09",
+      "portAddr": "0x6f90Bad1Aa97B88aD61747Afb90ff0cfd3421600",
       "channelId": "channel-11",
       "timeout": 36000
     }
   },
   "backup": {}
 }
-
-// Base: 0x7c9f0A60b2A6DD02d6E71fa2aBe6Cb9234f40a5C
-// Optimism: 0x7f525e27eE291feBFa9b447E75e9249aA607fE09

@@ -1,7 +1,16 @@
 import express from 'express';
 import cors from 'cors';
+import {
+    useWriteContract,
+} from "wagmi";
+
+import nftAbi from "./abis/NftMinter.json"
+import config from "./config.json"
 
 const app = express();
+
+const {writeContractAsync: write} = useWriteContract();
+
 app.use(express.json());
 app.use(cors({
     origin: '*'
@@ -14,7 +23,7 @@ const metadata = {
     get : {
         button: "Mint",
         imageUrl: 'https://i.imgur.com/ETBYV5E.png',
-        responseUrl: ""
+        responseUrl: "http://polymer-farcaster.onrender.com:8080/frame"
     },
     postSuccess: {
         button: "",
@@ -40,10 +49,11 @@ function frameGenerator(responseType) {
                 <meta property="og:title" content="Mint on Polymer Testnet" />
                 <meta property="og:image" content="${imageUrl}" />
                 <meta property="fc:frame" content="vNext" />\n
-                <meta property="fc:frame:image" content="${imageUrl}" />\n
-                <meta property="fc:frame:button:1" content="${button}" />\n
-                <meta property="fc:frame:post_url" content="${responseUrl}" /> \n
+                <meta name="fc:frame:image" content="${imageUrl}" />\n
+                <meta name="fc:frame:button:1" content="${button}" />\n
+                <meta name="fc:frame:button:1:post_url" content="${responseUrl}" /> \n
             </head>
+            <body></body>
         </html>
     `;
     return html;
@@ -57,6 +67,11 @@ app.get('/frame', (req, res) => {
 app.post('/frame', (req, res) => {
 
     try {
+        write({
+            address: config.sendUniversalPacket.base.portAddr,
+            functionName: "crossChainMint",
+            args: [config.sendUniversalPacket.optimism.portAddr, config.sendUniversalPacket.optimism.channelId, config.sendUniversalPacket.optimism.timeout]
+        })
         res.status(200).send(frameGenerator("postSuccess"));
     } catch (error) {
         res.status(200).send(frameGenerator("postError"));
@@ -67,4 +82,4 @@ app.listen(port, () => {
     console.log(`Server running on port ${port}`);
 });
 
-console.log(frameGenerator("get"));
+console.log(frameGenerator("get"))
